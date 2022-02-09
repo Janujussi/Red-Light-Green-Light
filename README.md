@@ -5,5 +5,5 @@
 ### The game was developed on an Arduino in C++.
 
 #### main.cpp is located in "src".
-#### "SegmentDriver" contains the class I created for segment displays for this project.
+#### "SegmentDisplay" contains the class I created for segment displays for this project.
 ###### P.S. Comment formatting translated to GitHub weirdly.
