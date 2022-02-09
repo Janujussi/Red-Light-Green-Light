@@ -168,7 +168,6 @@ void loop() {
 	servo_hitter.write(90);							// Initial angle of hitter servo
 	tone(BUZZER_PIN, 0);							// Initial game buzzer sound
 
-
 	mpuMove(MOTOR_STEP, mpu);
 
 	// Game loop
