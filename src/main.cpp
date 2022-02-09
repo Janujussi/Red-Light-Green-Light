@@ -1,3 +1,7 @@
+// FILE: main.cpp
+//
+// Author: Jan Morrison
+
 #include <Arduino.h>
 #include <Stepper.h>
 #include <SegmentDisplay.h>
@@ -6,7 +10,7 @@
 #include <HCSR04.h>
 #include <Servo.h>
 
-// Defines
+// Defines //
 #define BUZZER_PIN 10               	// Buzzer pin
 #define RED_LIGHT 12                	// Red light to show red light state
 #define GREEN_LIGHT 13              	// Green light to show green light state
@@ -27,7 +31,7 @@
 #define green_light false           	// Green light
 #define MOTOR_STEP 10					// Stepper motor step
 
-// Object declarations
+// Object declarations //
 Stepper motor(1024, 2, 3, 4, 5);     	// Step motor
 SegmentDisplay display(             	// 7 segment display
   DISPLAY_PIN_A,
@@ -46,7 +50,7 @@ UltraSonicDistanceSensor usensor(   	// Ultrasonic sensor
 );
 Servo servo_sensor, servo_hitter;   	// Servos
 
-// Variable declarations
+// Variable declarations //
 bool firstRun;
 bool startGame;                       	// Game start flag
 float stateTimer = 0;         		  	// Time for each state
@@ -62,7 +66,7 @@ unsigned long endStateTime = 0;			// To compare with start state time to check f
 float checkDistanceSum;					// Sum of distance readings from distance sensor
 float checkDistanceAverage;				// Average of readings from distance sensor
 
-// Functions
+// Functions //
 // Check mpu angle and move motor
 void mpuMove(int step, MPU6050 mpu) {
 	mpu.update();
@@ -124,7 +128,7 @@ void redLight() {
 	digitalWrite(GREEN_LIGHT, LOW);
 }
 
-// Setup function
+// Setup function //
 void setup() {
 	// Set baud rate
 	Serial.begin(9600);
@@ -153,7 +157,7 @@ void setup() {
 	servo_hitter.attach(SERVO_HITTER_PIN);
 }
 
-// Program loop function
+// Program loop function //
 void loop() {
 	startGame = digitalRead(START_BUTTON_PIN);		// Game starts if start button is pushed
 	gameState = green_light;						// Initial game state
